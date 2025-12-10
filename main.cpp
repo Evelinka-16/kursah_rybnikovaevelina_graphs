@@ -32,7 +32,7 @@ void print_menu() {
 }
 
 int main() {
-    setlocale(LC_ALL, "Russian");
+    setlocale(LC_ALL, "RU");
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
     Graph g;
