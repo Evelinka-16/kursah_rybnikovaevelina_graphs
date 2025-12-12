@@ -35,7 +35,7 @@ int main() {
     setlocale(LC_ALL, "RU");
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
-    Graph g;
+    Graph* g = new Graph();
 
     while (true) {
         system(CLEAR_CMD);
@@ -56,7 +56,7 @@ int main() {
                 std::cout << "Введите значение вершины: ";
                 std::cin >> value;
 
-                g.add_vertex(value);
+                g->add_vertex(value);
                 std::cout << "Вершина добавлена.\n";
                 wait_for_enter();
                 break;
@@ -67,7 +67,7 @@ int main() {
                 std::cout << "Введите индекс вершины для удаления: ";
                 std::cin >> index;
 
-                g.remove_vertex(index);
+                g->remove_vertex(index);
                 std::cout << "Если индекс был корректен — вершина удалена.\n";
                 wait_for_enter();
                 break;
@@ -80,7 +80,7 @@ int main() {
                 std::cout << "Введите индекс второй вершины: ";
                 std::cin >> v2;
 
-                g.connect_vertex(v1, v2);
+                g->connect_vertex(v1, v2);
                 std::cout << "Связь установлена.\n";
                 wait_for_enter();
                 break;
@@ -93,14 +93,14 @@ int main() {
                 std::cout << "Введите индекс второй вершины: ";
                 std::cin >> v2;
 
-                g.disconnect_vertex(v1, v2);
+                g->disconnect_vertex(v1, v2);
                 std::cout << "Связь удалена.\n";
                 wait_for_enter();
                 break;
             }
 
             case 5: {
-                std::cout << g;
+                std::cout << *g;
                 wait_for_enter();
                 break;
             }
@@ -110,7 +110,7 @@ int main() {
                 std::cout << "Введите имя файла: ";
                 std::cin >> filename;
 
-                g.save_to_file(filename);
+                g->save_to_file(filename);
                 std::cout << "Граф сохранён.\n";
                 wait_for_enter();
                 break;
@@ -121,15 +121,15 @@ int main() {
                 std::cout << "Введите имя файла: ";
                 std::cin >> filename;
 
-                g.clear();
-                g.load_from_file(filename);
+                g->clear();
+                g->load_from_file(filename);
                 std::cout << "Граф загружен.\n";
                 wait_for_enter();
                 break;
             }
 
             case 8: {
-                g.clear();
+                g->clear();
                 std::cout << "Граф очищен.\n";
                 wait_for_enter();
                 break;
