@@ -4,6 +4,7 @@
 
 class Graph {
 public:
+    Graph();
     void add_vertex(int value);
     void connect_vertex(int vertexId1, int vertexId2);
     void disconnect_vertex(int vertexId1, int vertexId2);
@@ -13,6 +14,7 @@ public:
     void load_from_file(std::string filename);
 
     void clear();
+    ~Graph();
 
     friend std::ostream& operator<<(std::ostream& os, const Graph& g);
 private:
