@@ -3,6 +3,11 @@
 #include <iostream>
 #include <sstream>
 
+Graph::Graph() {
+	vertices_ = std::vector<int>();
+	adj_matrix_ = std::vector<std::vector<bool>>();
+}
+
 void Graph::add_vertex(int value) {
 	vertices_.push_back(value);
 	int newSize = vertices_.size();
@@ -86,4 +91,9 @@ std::ostream& operator<<(std::ostream& os, const Graph& g) {
 void Graph::clear() {
 	vertices_.clear();
 	adj_matrix_.clear();
+}
+
+Graph::~Graph() {
+	clear();
+	std::cout << "Граф очищен из памяти." << std::endl;
 }
